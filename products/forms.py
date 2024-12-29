@@ -12,7 +12,7 @@ class ProductForm(forms.Form):
         Product.objects.create(
             name=self.cleaned_data['name'],
             price=self.cleaned_data['price'],
-            description=self.cleaned_dataa['description'],
+            description=self.cleaned_data['description'],  # Corrige aquí
             available=self.cleaned_data['available'],
-            photo=self.cleaned_data['photo']
+            photo=self.cleaned_data.get('photo')  # Usa `get` para evitar errores si no se sube una imagen
         )
